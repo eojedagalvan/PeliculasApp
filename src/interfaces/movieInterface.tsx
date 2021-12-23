@@ -7,8 +7,8 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface MovieDBNowPlaying {
-  dates: Dates;
+export interface MovieDBMoviesResponse {
+  dates?: Dates;
   page: number;
   results: Movie[];
   total_pages: number;
