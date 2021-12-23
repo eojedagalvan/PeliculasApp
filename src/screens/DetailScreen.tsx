@@ -22,7 +22,9 @@ const DetailScreen = ({ route }: Props) => {
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
-        <Image source={{ uri }} style={styles.posterImage} />
+        <View style={styles.imageBorder}>
+          <Image source={{ uri }} style={styles.posterImage} />
+        </View>
       </View>
       <View style={styles.marginContainer}>
         <Text style={styles.subTitle}>{movie.original_title}</Text>
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "100%",
-    overflow: "hidden",
+    // overflow: "hidden",
     height: screenHeight * 0.7,
     shadowColor: "#000",
     shadowOffset: {
@@ -51,7 +53,12 @@ const styles = StyleSheet.create({
     shadowRadius: 7,
 
     elevation: 9,
-
+    borderBottomEndRadius: 25,
+    borderBottomStartRadius: 25,
+  },
+  imageBorder: {
+    flex: 1,
+    overflow: "hidden",
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25,
   },
