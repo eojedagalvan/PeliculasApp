@@ -42,7 +42,6 @@ const HomeScreen = () => {
         <View
           style={{
             height: 440,
-            // backgroundColor: "red",
           }}
         >
           <Carousel
