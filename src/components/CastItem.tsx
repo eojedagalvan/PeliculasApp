@@ -19,7 +19,7 @@ const CastItem = ({ actor }: Props) => {
       <View style={styles.actorInfo}>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 17,
             fontWeight: "bold",
           }}
         >
@@ -27,7 +27,7 @@ const CastItem = ({ actor }: Props) => {
         </Text>
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 15,
             opacity: 0.7,
           }}
         >
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
   },
   actorInfo: {
     marginLeft: 10,
-    marginTop: 3,
+    marginTop: 1,
   },
 });
