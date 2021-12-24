@@ -1,6 +1,7 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import {
+  ActivityIndicator,
   Dimensions,
   Image,
   ScrollView,
@@ -10,6 +11,8 @@ import {
 } from "react-native";
 import { Movie } from "../interfaces/movieInterface";
 import { RootStackParams } from "../navigation/Navigation";
+import { useMovieDetails } from "../hooks/useMovieDetails";
+import MovieDetails from "../components/MovieDetails";
 
 const screenHeight = Dimensions.get("screen").height;
 
@@ -18,6 +21,8 @@ interface Props extends StackScreenProps<RootStackParams, "DetailScreen"> {}
 const DetailScreen = ({ route }: Props) => {
   const movie = route.params;
   const uri = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+
+  const { isLoading, cast, movieFull } = useMovieDetails(movie.id);
 
   return (
     <ScrollView>
@@ -30,6 +35,11 @@ const DetailScreen = ({ route }: Props) => {
         <Text style={styles.subTitle}>{movie.original_title}</Text>
         <Text style={styles.title}>{movie.title}</Text>
       </View>
+      {isLoading ? (
+        <ActivityIndicator size={35} color="gray" style={{ marginTop: 20 }} />
+      ) : (
+        <MovieDetails movieFull={movieFull!} cast={cast} />
+      )}
     </ScrollView>
   );
 };

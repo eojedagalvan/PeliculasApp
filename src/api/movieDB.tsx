@@ -5,7 +5,7 @@ const movieDB = axios.create({
   params: {
     api_key: "2eb3b16e782e95e916bfaba1e569f408",
     language: "es-ES",
-    include_adult: "False",
+    include_adult: "false",
   },
 });
 
