@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MovieFull } from "../interfaces/movieInterface";
 import { Ionicons } from "@expo/vector-icons";
+import currencyFormatter from "currency-formatter";
 
 interface Props {
   movieFull: MovieFull;
@@ -20,6 +21,43 @@ const MovieDetails = ({ movieFull, cast }: Props) => {
             - {movieFull.genres.map((g) => g.name).join(", ")}
           </Text>
         </View>
+
+        {/* Historia */}
+        <Text
+          style={{
+            fontSize: 23,
+            marginTop: 10,
+            fontWeight: "bold",
+          }}
+        >
+          Historia
+        </Text>
+        <Text
+          style={{
+            fontSize: 16,
+            textAlign: "justify",
+          }}
+        >
+          {movieFull.overview}
+        </Text>
+
+        {/* Presupuesto */}
+        <Text
+          style={{
+            fontSize: 23,
+            marginTop: 10,
+            fontWeight: "bold",
+          }}
+        >
+          Presupuesto
+        </Text>
+        <Text
+          style={{
+            fontSize: 18,
+          }}
+        >
+          {currencyFormatter.format(movieFull.budget, { code: "USD" })}
+        </Text>
       </View>
     </>
   );
