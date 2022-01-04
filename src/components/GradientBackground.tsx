@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -10,9 +11,15 @@ const GradientBackground = ({ children }: Props) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: "pink",
+        // backgroundColor: "pink",
       }}
     >
+      <LinearGradient
+        colors={["#084F6A", "#75CEDB", "white"]}
+        style={{ ...StyleSheet.absoluteFillObject }}
+        start={{ x: 0.1, y: 0.1 }}
+        end={{ x: 0.5, y: 0.7 }}
+      />
       {children}
     </View>
   );
