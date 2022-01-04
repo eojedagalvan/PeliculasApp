@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -10,11 +10,10 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MoviePoster from "../components/MoviePoster";
 import { useMovies } from "../hooks/useMovies";
 import Carousel from "react-native-snap-carousel";
-import ImageColors from "react-native-image-colors";
 
 import HorizontalSlider from "../components/HorizontalSlider";
 import GradientBackground from "../components/GradientBackground";
-import { getImageColors } from "../api/helpers/getColores";
+import { getImageColors } from "../helpers/getColores";
 
 const { width: windowWith } = Dimensions.get("window");
 
@@ -25,9 +24,6 @@ const HomeScreen = () => {
   const getPosterColors = async (index: number) => {
     const movie = nowPlaying[index];
     const uri = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-
-    const colors = await ImageColors.getColors(uri, {});
-
     const [primary, secondary] = await getImageColors(uri);
   };
 
